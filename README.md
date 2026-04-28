@@ -15,6 +15,7 @@ Git es un **MVC (Model Version Control)** o Sistema de Control de Versiones. Es 
 ### Historia de Git
 * **1990:** Primeras herramientas (RCS y CVS).
 * **2005:** Linus Torvalds crea Git para el kernel de Linux.
+  ![Linus meme](Linuseadas/xsdtv.jpg)
 * **2008:** Lanzamiento de GitHub (inicialmente en Ruby).
 * **2018:** Microsoft adquiere GitHub.
 * **2025:** GitHub lidera con funciones de IA.
