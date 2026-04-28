@@ -1,6 +1,7 @@
 # Scesi-Postulation
 _Scesi postulation 2026_
 _Mateo Fabian Gonzales Jimenez_
+
 ---
 
 # Apuntes Completos de Git & GitHub
@@ -70,3 +71,28 @@ Sirve para listar archivos o carpetas que Git debe ignorar (no rastrear).
     * `docs`: Documentación.
     * `refactor`: Mejora de código sin cambiar funcionalidad.
     * `perf`: Mejoras de rendimiento.
+
+---
+
+## Clase 3: GitHub y Conexión Remota
+### ¿Qué es GitHub?
+Es una plataforma en la nube (la "red social de programadores") que permite alojar repositorios de Git y colaborar con otros.
+
+### Protocolos de Conexión
+1. **HTTPS:** Fácil de usar, pero requiere autenticación frecuente (token personal).
+2. **SSH:** Usa claves criptográficas. Más seguro y profesional; no pide contraseña tras la configuración inicial.
+3. **CLI (gh):** Herramienta de línea de comandos de GitHub para mayor productividad.
+
+### Configuración SSH
+1. **Generar:** `ssh-keygen -t ed25519 -C "correo@ejemplo.com"`
+2. **Verificar clave pública:** `cat ~/.ssh/id_ed25519.pub`
+3. **Vincular:** Copiar el contenido en *Settings > SSH keys* en GitHub.
+4. **Probar:** `ssh -T git@github.com`
+
+### Conectar Local con Remoto
+Si ya tienes un proyecto local:
+```bash
+git remote add origin <url-del-repo>
+git branch -M main
+git push -u origin main
+```
