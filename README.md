@@ -9,18 +9,18 @@ _Mateo Fabian Gonzales Jimenez_
 
 ##  Clase 1: Introducción y Configuración
 ### ¿Qué es Git?
-Git es un **MVC (Model Version Control)** o Sistema de Control de Versiones. Es una herramienta que realiza un seguimiento de los cambios en los archivos a lo largo del tiempo, permitiendo:
+Git es un **MVC (Model Version Control)** o Sistema de Control de Versiones.
+Es una herramienta que realiza seguimiento a los cambios de los archivos a lo largo del tiempo, permitiendo:
 * Revertir a versiones anteriores.
 * Colaborar con otros desarrolladores.
 * Gestionar diferentes ramas de código.
 
 ### Historia de Git
-* **1990:** Primeras herramientas (RCS y CVS).
-* **2005:** Linus Torvalds crea Git para el kernel de Linux.
+* **1990:** Primeras herramientas que son RCS y CVS.
+* **2005:** Linus Torvalds crea Git.
   ![Linus meme](Linuseadas/xsdtv.jpg)
-* **2008:** Lanzamiento de GitHub (inicialmente en Ruby).
+* **2008:** Lanzamiento de GitHub.
 * **2018:** Microsoft adquiere GitHub.
-* **2025:** GitHub lidera con funciones de IA.
 
 ### Instalación y Configuración Inicial
 * **Descarga:** [git-scm.com](https://git-scm.com/install/)
@@ -30,8 +30,8 @@ Git es un **MVC (Model Version Control)** o Sistema de Control de Versiones. Es 
 #### Comandos de configuración global:
 | Comando | Descripción |
 | :--- | :--- |
-| `git config --global user.name "Tu Nombre"` | Configura tu nombre de usuario |
-| `git config --global user.email "tu@correo.com"` | Configura tu correo electrónico |
+| `git config --global user.name "Tu Nombre"` | Configura un nombre de usuario |
+| `git config --global user.email "tu@correo.com"` | Configura un correo electrónico |
 | `git config --global core.autocrlf true` | Maneja finales de línea automáticamente |
 
 ---
@@ -41,8 +41,8 @@ Git gestiona los archivos a través de tres áreas principales:
 
 ### 1. Directorio de Trabajo
 Donde creas o modificas archivos.
-* **Untracked:** Archivos nuevos que Git aún no conoce.
-* **Modified:** Archivos que Git ya rastrea pero han sido cambiados.
+* **Untracked:** Archivos nuevos que Git aún desconoce.
+* **Modified:** Archivos que Git ya rastrea pero han sido modificados.
 * **Comando:** `git restore <archivo>` descarta cambios y vuelve al estado original.
 
 
@@ -100,3 +100,29 @@ git remote add origin <url-del-repo>
 git branch -M main
 git push -u origin main
 ```
+
+---
+
+## Clase 4: Remotos Avanzados y Múltiple SSH
+### Gestión de Remotos
+* `git remote -v`: Ver conexiones actuales.
+* `git remote set-url origin <nueva-url>`: Cambiar la dirección del repositorio remoto.
+
+### Configuración de Múltiples Cuentas SSH
+Para usar una cuenta de trabajo y una personal en la misma PC, se edita el archivo `~/.ssh/config`:
+```text
+Host github-personal
+    HostName github.com
+    IdentityFile ~/.ssh/id_ed25519_personal
+
+Host github-trabajo
+    HostName github.com
+    IdentityFile ~/.ssh/id_ed25519_trabajo
+```
+
+### Jerarquía de Configuración
+1. **Local:** `--local` (Solo el repositorio actual). **Mayor prioridad.**
+2. **Global:** `--global` (Para el usuario del sistema).
+3. **System:** Para todos los usuarios de la máquina.
+
+---
