@@ -1,8 +1,8 @@
 # Scesi-Postulation
 _Scesi postulation 2026_
-
+_Trabajo individual_
 _Mateo Fabian Gonzales Jimenez_
-
+__
 ---
 
 # Apuntes Completos de Git & GitHub
@@ -48,7 +48,7 @@ Donde creas o modificas archivos.
 
 ### 2. Stage Area
 El área de espera para los archivos que quieres incluir en el siguiente "punto de guardado".
-* **Agregar:** `git add <archivo>` o `git add .` para todo).
+* **Agregar:** `git add <archivo>` o `git add .` para todo.
 * **Quitar de Stage:** `git restore --staged <archivo>`.
 
 ### 3. Repositorio Local (Committed)
@@ -65,7 +65,7 @@ Sirve para listar archivos o carpetas que Git debe ignorar o no rastrear.
 
 ### Buenas Prácticas de Commits
 * **Frecuencia:** Hacer commits pequeños y atómicos o sea un cambio lógico a la vez.
-* **Mensajes:** Máximo 50 caracteres, sin punto final, usando verbos imperativos (`Add`, `Fix`, `Remove`).
+* **Mensajes:** Máximo 50 caracteres, sin punto final, usando verbos imperativos `Add`, `Fix`, `Remove`.
 * **Prefijos Semánticos:**
     * `feat`: Nueva funcionalidad.
     * `fix`: Corrección de errores.
@@ -121,8 +121,29 @@ Host github-trabajo
 ```
 
 ### Jerarquía de Configuración
-1. **Local:** `--local` (Solo el repositorio actual). **Mayor prioridad.**
-2. **Global:** `--global` (Para el usuario del sistema).
+1. **Local:** `--local` Solo el repositorio actual. **Mayor prioridad.**
+2. **Global:** `--global` Para el usuario del sistema.
 3. **System:** Para todos los usuarios de la máquina.
+
+---
+## Clase 5: Ramas, Navegación y Gitflow
+### Ramas
+Permiten crear "universos alternos" para probar funciones sin romper la rama principal (`main`).
+* **Crear y cambiar:** `git switch -c <nombre-rama>` o `git checkout -b <nombre-rama>`.
+* **Cambiar a rama existente:** `git switch <nombre>` o `git checkout <nombre>`.
+
+### Navegación por Commits
+* **Ver historial:** `git log --oneline`.
+* **Viajar al pasado:** `git checkout <id-commit>`.
+    * **Detached HEAD:** Ocurre cuando apuntas a un commit y no a una rama. Para guardar cambios aquí, usa `git checkout -b nueva-rama`.
+* **Regresar definitivamente:** `git reset --hard <id-commit>`.
+
+### Gitflow
+* **Ramas Principales:** `main` producción y `develop` desarrollo.
+* **Ramas Secundarias:** `feature/` nuevas funciones, `release/` preparar versiones y `hotfix/` arreglos urgentes.
+
+### Sincronización
+* **Pull:** `git pull origin <rama>` Baja cambios y los fusiona.
+* **Push:** `git push origin <rama>` Sube tus commits.
 
 ---
