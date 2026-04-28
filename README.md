@@ -85,6 +85,7 @@ Es una plataforma en la nube la "red social de programadores" que permite alojar
 3. **SSH:** Usa claves criptográficas. Más seguro y profesional; no pide contraseña tras la configuración inicial.
     ![SSH-Reference](Linuseadas/descripcion-del-protocolo-ssh.webp)
 5. **CLI (gh):** Herramienta de línea de comandos de GitHub para mayor productividad.
+    ![Linus meme](Linuseadas/cli(gh).jpg)
 
 ### Configuración SSH
 1. **Generar:** `ssh-keygen -t ed25519 -C "correo@ejemplo.com"`
