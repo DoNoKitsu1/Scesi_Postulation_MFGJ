@@ -81,7 +81,7 @@ Es una plataforma en la nube la "red social de programadores" que permite alojar
 
 ### Protocolos de Conexión
 1. **HTTPS:** Fácil de usar, pero requiere autenticación frecuente o token personal.
-    ![HTTPS-Info](Linuseadas/Https-secure-protocol.jpg)
+    ![HTTPS-Info](Linuseadas/"Https secure protocol.jpg")
 3. **SSH:** Usa claves criptográficas. Más seguro y profesional; no pide contraseña tras la configuración inicial.
     ![SSH-Reference](Linuseadas/descripcion-del-protocolo-ssh.webp)
 5. **CLI (gh):** Herramienta de línea de comandos de GitHub para mayor productividad.
