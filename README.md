@@ -147,3 +147,70 @@ Permiten crear "universos alternos" para probar funciones sin romper la rama pri
 * **Push:** `git push origin <rama>` Sube tus commits.
 
 ---
+
+# Clase 6: Git y Flujos de Trabajo
+
+Esta sesión se enfoca en los comandos esenciales para la colaboración y el manejo de ramas en Git, así como en un flujo de trabajo estándar sin el uso de Pull Requests.
+
+## 1. Comandos Principales
+
+### Git Merge
+Permite fusionar los cambios de una rama en otra.
+* **Flag `--no-ff` (No Fast Forward):** Fuerza la creación de un *merge commit* incluso si Git pudiera realizar la unión de forma lineal. Esto es vital para mantener la visibilidad del historial de la rama, permitiendo saber que existió aunque sea borrada posteriormente.
+
+### Git Fetch
+Consulta si existen cambios en el repositorio remoto (commits, archivos o referencias) pero **no los descarga** ni los integra en tu código local. Solo actualiza la información para que estés al tanto de las novedades.
+
+### Git Pull
+Trae y fusiona los cambios del repositorio remoto directamente a tu rama actual. Es, en esencia, la combinación de `git fetch` + `git merge`.
+* **Uso:** `git pull origin <nombre_de_la_rama>`
+
+### Git Push
+Sube tus cambios locales al repositorio remoto.
+* **Uso inicial:** La primera vez que subes una rama, se recomienda usar el flag `-u` para establecer el seguimiento:
+    `git push -u origin <nombre_de_la_rama>`
+
+---
+
+## 2. Flujo de Trabajo (Sin Pull Requests)
+
+Este flujo se utiliza habitualmente para integrar cambios directamente en una rama común (como `develop`) desde ramas de características individuales.
+
+### Paso 1: Actualizar la rama base
+Antes de empezar, asegúrate de que tu rama local `develop` esté al día:
+```bash
+git checkout develop
+git fetch
+git pull origin develop
+```
+
+### Paso 2: Integrar cambios en tu rama (opcional)
+Si hubo cambios en `develop`, llévalos a tu rama de trabajo para evitar conflictos mayores al final:
+```bash
+git checkout <tu-rama>
+git merge develop
+```
+
+### Paso 3: Trabajar y subir cambios
+Realiza tus commits y sube tu rama al servidor:
+```bash
+git push origin <tu-rama>
+```
+
+### Paso 4: Fusión final en Develop
+Para integrar tu trabajo de forma permanente:
+1. Regresa a `develop` y asegúrate de que siga actualizada.
+2. Realiza el merge con `--no-ff`.
+```bash
+git checkout develop
+git pull origin develop
+git merge --no-ff <tu-rama>
+```
+
+### Paso 5: Resolución de conflictos y limpieza
+Si hay conflictos durante el merge:
+1. Edita los archivos manualmente para resolver las diferencias.
+2. Marca los archivos como resueltos: `git add .`
+3. Finaliza la fusión: `git commit` (se abrirá un editor como Vim/Nano para confirmar el mensaje).
+4. Borra la rama auxiliar: `git branch -d <tu-rama>`
+5. Sube el resultado final al servidor: `git push origin develop`
