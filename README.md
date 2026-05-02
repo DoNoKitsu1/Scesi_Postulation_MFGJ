@@ -2,7 +2,7 @@
 _Scesi postulation 2026_
 _Trabajo individual_
 _Mateo Fabian Gonzales Jimenez_
-__
+
 ---
 
 # Apuntes Completos de Git & GitHub
@@ -214,3 +214,81 @@ Si hay conflictos durante el merge:
 3. Finaliza la fusión: `git commit` (se abrirá un editor como Vim/Nano para confirmar el mensaje).
 4. Borra la rama auxiliar: `git branch -d <tu-rama>`
 5. Sube el resultado final al servidor: `git push origin develop`
+
+---
+
+## Clase 7: Pull Requests (PR) y Colaboración
+El **Pull Request** no es un comando de Git, sino una funcionalidad de plataformas como GitHub para revisar código antes de integrarlo.
+
+### 1. El flujo de trabajo profesional
+En entornos reales (o en proyectos de robótica colaborativos), nunca se hace push directo a `main`. El flujo es:
+1. **Sincronizar:** `git checkout develop` + `git pull origin develop`.
+2. **Rama de feature:** `git checkout -b feature/nueva-mejora`.
+3. **Push inicial:** `git push -u origin feature/nueva-mejora`.
+4. **Abrir PR:** En GitHub, comparas tu rama con `develop`.
+5. **Code Review:** Otros revisan, comentan y aprueban.
+6. **Merge:** Se integra en la nube y luego borras la rama local con `git branch -D`.
+
+### 2. Forking: Colaborar en proyectos ajenos
+Si quieres contribuir a un repositorio donde no tienes permisos de escritura:
+* Haces un **Fork** (copia a tu cuenta).
+* Clonas tu fork, haces los cambios y subes a *tu* remoto.
+* Abres un PR desde tu fork hacia el repositorio original.
+
+---
+
+## Clase 8: Herramientas de Inspección y Emergencias
+Aquí es donde Git se vuelve un "salvavidas" para el código.
+
+### 1. Git Stash: El "armario" temporal
+Si necesitas cambiar de rama urgentemente pero tienes trabajo a medio hacer y no quieres hacer un commit "sucio":
+* `git stash`: Guarda tus cambios actuales y deja el directorio limpio.
+* `git stash list`: Mira qué tienes guardado.
+* `git stash pop`: Recupera los cambios y los borra del stash.
+* `git stash apply`: Los aplica pero mantiene la copia en el stash.
+
+### 2. Git Diff: ¿Qué rompí?
+Antes de hacer un `git add`, es vital revisar qué cambió exactamente:
+* `git diff`: Cambios en el directorio de trabajo (no stagiados).
+* `git diff --staged`: Cambios ya agregados al stage que están listos para el commit.
+* `git diff rama1 rama2`: Compara dos ramas completas.
+
+### 3. Resolución de Conflictos en PRs
+Si alguien hizo merge de un cambio que toca tus mismas líneas:
+1. Traes lo nuevo: `git fetch origin`.
+2. Fusionas la rama base en la tuya: `git merge origin/develop`.
+3. **Manual fix:** Git marcará los archivos. Debes elegir entre *Current Change*, *Incoming Change* o ambos.
+4. Finalizas: `git add .` + `git commit`.
+
+---
+
+## Resumen de Comandos
+
+| Acción | Comando |
+| :--- | :--- |
+| **Limpieza temporal** | `git stash` |
+| **Recuperar archivos** | `git restore <file>` |
+| **Historial compacto** | `git log --oneline --graph --all` |
+| **Comparar ramas** | `git diff main..develop` |
+| **Borrado remoto** | `git push origin --delete <rama>` |
+
+---
+
+---
+
+# Buenas Prácticas
+
+* Commits pequeños
+* PRs claros
+* No push directo a main
+* Eliminar ramas tras merge
+
+---
+
+# Conclusión
+
+Git y GitHub son herramientas esenciales para desarrollo moderno y trabajo colaborativo la verdad son herramientas altamente eficientes en su trabajo y con una curva de aprendizaje bastante alta pero satisfactoria.
+Tambien quiero pedir disculpas por la falta de contenido y el alto uso de ia para reorganizar la información de mis apuntes, si no estoy mal cuento con una falta segun el form de asistencia pero es unicamente por no estar atento durante esa clase, todo lo demás muchas gracias auxi este curso fue muy divertido y entretenido, me gustaria seguir aprendiendo de usted
+
+---
+
